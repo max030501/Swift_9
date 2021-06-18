@@ -41,8 +41,16 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
         // Do any additional setup after loading the view.
     }
     func didLikeButtonPressed(cell: TripCollectionViewCell) {
+        
         if let indexPath = collectionView.indexPath(for: cell) {
-            trips[indexPath.row].isLiked = trips[indexPath.row].isLiked ? false : cell.isLiked == trips[indexPath.row].isLiked
+            if cell.isLiked{
+                cell.isLiked = false
+                trips[indexPath.row].isLiked = false
+            }else
+            {
+                cell.isLiked = true
+                trips[indexPath.row].isLiked = true
+            }
     } }
 
 }
